@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <thread>
+#include <vector>
+#include <curl/curl.h>
+#include "downloader.h"
+
+void log(const std::string& message) {
+    auto now = std::chrono::system_clock::now();
+    auto now_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+    std::cout << "[" << now_ms.count() << "] " << message << std::endl;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 4) {
+        std::cerr << "Usage: " << argv[0] << " <urls_file> <output_directory> <max_concurrent_downloads>" << std::endl;
+        return 1;
+    }
+
+    std::string urls_file = argv[1];
+    std::string output_directory = argv[2];
+    int max_concurrent_downloads = std::stoi(argv[3]);
+
+    log("Starting program");
+    log("Parameters: " + std::string(argv[1]) + ", " + std::string(argv[2]) + ", " + std::string(argv[3]));
+
+    std::vector<std::string> urls;
+    std::ifstream infile(urls_file);
+    std::string url;
+
+    while (std::getline(infile, url)) {
+        if (!url.empty()) {
+            urls.push_back(url);
+        }
+    }
+
+    Downloader downloader(output_directory, max_concurrent_downloads);
+    downloader.download_files(urls);
+
+    log("Program finished");
+    return 0;
+}

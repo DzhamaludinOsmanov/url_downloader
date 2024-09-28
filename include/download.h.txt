@@ -1,0 +1,18 @@
+#ifndef DOWNLOADER_H
+#define DOWNLOADER_H
+
+#include <string>
+#include <vector>
+
+class Downloader {
+public:
+    Downloader(const std::string& output_dir, int max_concurrent_downloads);
+    void download_files(const std::vector<std::string>& urls);
+
+private:
+    void download_file(const std::string& url);
+    std::string output_directory;
+    int max_concurrent_downloads;
+};
+
+#endif // DOWNLOADER_H

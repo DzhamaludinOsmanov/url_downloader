@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.29)
+project(url_downloader)
+
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(CURL REQUIRED)
+
+include_directories(include)
+
+add_executable(url_downloader src/main.cpp src/downloader.cpp)
+target_link_libraries(url_downloader ${CURL_LIBRARIES})
