@@ -1,0 +1,3 @@
+C:/CppProjects/url_downloader/build/CMakeFiles/url_downloader.dir
+C:/CppProjects/url_downloader/build/CMakeFiles/ALL_BUILD.dir
+C:/CppProjects/url_downloader/build/CMakeFiles/ZERO_CHECK.dir

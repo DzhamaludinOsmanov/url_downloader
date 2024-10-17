@@ -1,0 +1,10 @@
+^C:\CPPPROJECTS\URL_DOWNLOADER\BUILD\CMAKEFILES\AC5E94397E8302797DF02E010456C694\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/CppProjects/url_downloader -BC:/CppProjects/url_downloader/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/CppProjects/url_downloader/build/url_downloader.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
