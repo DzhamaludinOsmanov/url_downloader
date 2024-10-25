@@ -46,7 +46,12 @@ std::string numerator(const std::string& filename, std::vector <std::string>& fi
         }
     }
 
-    return filename + "_" + std::to_string(count);
+    if (count == 0) {
+        return filename + ".png";
+        }
+    else {
+        return filename + "_" + std::to_string(count) + ".png";
+        }
 }
 
 // Функция для извлечения имени файла из URL
@@ -60,9 +65,10 @@ std::string Filename(const std::string& url, std::vector <std::string>& filename
     else {
         filename = url.substr(last_slash + 1);
 
-        for(const auto& c : filename){
-            if (!std::isalnum(c) && c != '_'){
-                filename.replace(c, 1, "_");
+        for (size_t i = 0; i < filename.length(); i++) {
+            if (!std::isalnum(filename[i]) && filename[i] != '_') {
+                filename.erase(i, 1);
+                filename.insert(i, 1, '_'); 
             }
         }
     }
@@ -82,12 +88,20 @@ void Downloader::download_file(const std::string& url, std::vector <std::string>
 
     // Инициализация libcurl
     curl = curl_easy_init();
-    if (curl) {
+    if (!curl) {
+        std::cout << "Error" << std::endl;
+        Downloader::log_message("Curl initialization error: " + std::string(curl_easy_strerror(CURLE_FAILED_INIT)));
+        return; 
+    }
+    else {
         // Открытие файла для записи
         fp = fopen(filename.c_str(), "wb");
         if (!fp){
+            Downloader::log_message("File opening error: " + filename);
+            curl_easy_cleanup(curl);
             return;
         }
+        
 
         // Установка параметров libcurl
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -95,7 +109,7 @@ void Downloader::download_file(const std::string& url, std::vector <std::string>
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
         curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1L);
 
-        // Выполнение загрузки
+        // Выполнение и логирование успешной загрузки файла
         res = curl_easy_perform(curl);
         if (res != CURLE_OK) {
             Downloader::log_message("Error downloading " + url + ": " + curl_easy_strerror(res));
@@ -107,9 +121,6 @@ void Downloader::download_file(const std::string& url, std::vector <std::string>
         // Закрытие файла и очистка ресурсов libcurl
         fclose(fp);
         curl_easy_cleanup(curl);
-
-        // Логирование успешной загрузки файла
-        Downloader::log_message("Downloaded: " + url);
     }
 }
 
