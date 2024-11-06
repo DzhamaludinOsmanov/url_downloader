@@ -37,7 +37,6 @@ std::string numerator(const std::string& filename, std::vector <std::string>& fi
 
     if (filenames.empty()) {
         filenames.push_back(filename);
-        return filename;
     }
 
     for(auto& fn : filenames){
@@ -46,12 +45,10 @@ std::string numerator(const std::string& filename, std::vector <std::string>& fi
         }
     }
 
-    if (count == 0) {
-        return filename + ".png";
-        }
-    else {
+    if (count > 0) {
         return filename + "_" + std::to_string(count) + ".png";
-        }
+    }
+    return filename + ".png";
 }
 
 // Функция для извлечения имени файла из URL
@@ -59,12 +56,11 @@ std::string Filename(const std::string& url, std::vector <std::string>& filename
     std::string filename;
     size_t last_slash = url.find_last_of('/');
 
-    if(last_slash == std::string::npos){
+    filename = url.substr(last_slash + 1);
+    if(filename.length() > 100){
         filename = "Image";
     }
     else {
-        filename = url.substr(last_slash + 1);
-
         for (size_t i = 0; i < filename.length(); i++) {
             if (!std::isalnum(filename[i]) && filename[i] != '_') {
                 filename.erase(i, 1);
