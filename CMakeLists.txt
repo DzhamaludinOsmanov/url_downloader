@@ -4,6 +4,7 @@ project(url_downloader)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(CURL REQUIRED)
+find_package(ZLIB REQUIRED)
 
 include_directories(include)
 

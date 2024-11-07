@@ -37,7 +37,6 @@ std::string numerator(const std::string& filename, std::vector <std::string>& fi
 
     if (filenames.empty()) {
         filenames.push_back(filename);
-        return filename;
     }
 
     for(auto& fn : filenames){

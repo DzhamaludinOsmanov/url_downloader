@@ -21,6 +21,7 @@ C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeGenericSystem.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake
@@ -94,6 +95,10 @@ C:/Program Files/CMake/share/cmake-3.29/Modules/Compiler/XLClang-CXX-DetermineCo
 C:/Program Files/CMake/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/CompilerId/VS-10.vcxproj.in
+C:/Program Files/CMake/share/cmake-3.29/Modules/FindCURL.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/FindZLIB.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake
@@ -103,3 +108,8 @@ C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake
+C:/vcpkg/installed/x64-windows/share/curl/CURLConfig.cmake
+C:/vcpkg/installed/x64-windows/share/curl/CURLConfigVersion.cmake
+C:/vcpkg/installed/x64-windows/share/curl/CURLTargets-debug.cmake
+C:/vcpkg/installed/x64-windows/share/curl/CURLTargets-release.cmake
+C:/vcpkg/installed/x64-windows/share/curl/CURLTargets.cmake
